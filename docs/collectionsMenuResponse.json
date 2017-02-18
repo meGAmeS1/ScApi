@@ -1,0 +1,257 @@
+{
+    "code": 200, 
+    "items": [
+        {
+            "items": [
+                {
+                    "display": "listing_collection", 
+                    "label": "Tout", 
+                    "url": "/users/me/products/"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Envies", 
+                    "url": "/users/me/products/wish"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Not\u00e9s", 
+                    "url": "/users/me/products/rating"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Coups de coeur", 
+                    "url": "/users/me/products/recommend"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "En Cours", 
+                    "url": "/users/me/products/current"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Liste d'achats", 
+                    "url": "/users/me/products/shopping"
+                }
+            ], 
+            "label": "Tout", 
+            "type_id": 0
+        }, 
+        {
+            "items": [
+                {
+                    "display": "listing_collection", 
+                    "label": "Tout", 
+                    "url": "/users/me/products/movie"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Envies", 
+                    "url": "/users/me/products/movie/wish"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Not\u00e9s", 
+                    "url": "/users/me/products/movie/rating"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Coups de coeur", 
+                    "url": "/users/me/products/movie/recommend"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "En Cours", 
+                    "url": "/users/me/products/movie/current"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Liste d'achats", 
+                    "url": "/users/me/products/movie/shopping"
+                }
+            ], 
+            "label": "Films", 
+            "type_id": 1
+        }, 
+        {
+            "items": [
+                {
+                    "display": "listing_collection", 
+                    "label": "Tout", 
+                    "url": "/users/me/products/tvshow"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Envies", 
+                    "url": "/users/me/products/tvshow/wish"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Not\u00e9es", 
+                    "url": "/users/me/products/tvshow/rating"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Coups de coeur", 
+                    "url": "/users/me/products/tvshow/recommend"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "En Cours", 
+                    "url": "/users/me/products/tvshow/current"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Liste d'achats", 
+                    "url": "/users/me/products/tvshow/shopping"
+                }
+            ], 
+            "label": "S\u00e9ries", 
+            "type_id": 4
+        }, 
+        {
+            "items": [
+                {
+                    "display": "listing_collection", 
+                    "label": "Tout", 
+                    "url": "/users/me/products/videogame"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Envies", 
+                    "url": "/users/me/products/videogame/wish"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Not\u00e9s", 
+                    "url": "/users/me/products/videogame/rating"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Coups de coeur", 
+                    "url": "/users/me/products/videogame/recommend"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "En Cours", 
+                    "url": "/users/me/products/videogame/current"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Liste d'achats", 
+                    "url": "/users/me/products/videogame/shopping"
+                }
+            ], 
+            "label": "Jeux", 
+            "type_id": 3
+        }, 
+        {
+            "items": [
+                {
+                    "display": "listing_collection", 
+                    "label": "Tout", 
+                    "url": "/users/me/products/book"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Envies", 
+                    "url": "/users/me/products/book/wish"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Not\u00e9s", 
+                    "url": "/users/me/products/book/rating"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Coups de coeur", 
+                    "url": "/users/me/products/book/recommend"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "En Cours", 
+                    "url": "/users/me/products/book/current"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Liste d'achats", 
+                    "url": "/users/me/products/book/shopping"
+                }
+            ], 
+            "label": "Livres", 
+            "type_id": 2
+        }, 
+        {
+            "items": [
+                {
+                    "display": "listing_collection", 
+                    "label": "Tout", 
+                    "url": "/users/me/products/comic"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Envies", 
+                    "url": "/users/me/products/comic/wish"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Not\u00e9es", 
+                    "url": "/users/me/products/comic/rating"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Coups de coeur", 
+                    "url": "/users/me/products/comic/recommend"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "En Cours", 
+                    "url": "/users/me/products/comic/current"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Liste d'achats", 
+                    "url": "/users/me/products/comic/shopping"
+                }
+            ], 
+            "label": "BD", 
+            "type_id": 5
+        }, 
+        {
+            "items": [
+                {
+                    "display": "listing_collection", 
+                    "label": "Tout", 
+                    "url": "/users/me/products/music"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Envies", 
+                    "url": "/users/me/products/music/wish"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Not\u00e9es", 
+                    "url": "/users/me/products/music/rating"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Coups de coeur", 
+                    "url": "/users/me/products/music/recommend"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "En Cours", 
+                    "url": "/users/me/products/music/current"
+                }, 
+                {
+                    "display": "listing_collection", 
+                    "label": "Liste d'achats", 
+                    "url": "/users/me/products/music/shopping"
+                }
+            ], 
+            "label": "Musique", 
+            "type_id": 6
+        }
+    ]
+}

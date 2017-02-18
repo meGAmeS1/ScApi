@@ -1,8 +1,12 @@
 import os
+import logging
 from ConfigParser import ConfigParser
 
+logging.basicConfig(level=logging.INFO)
+logging.getLogger('requests').setLevel(logging.WARNING)
+
 config = ConfigParser()
-config.read('config.default.ini')
+config.read('config.example.ini')
 if os.path.isfile('config.ini'):
     config.read('config.ini')
 

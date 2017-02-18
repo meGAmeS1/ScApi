@@ -1,0 +1,67 @@
+{
+  "products": [
+    {
+      "id": 8123887,
+      "title": "Independence Day : Resurgence",
+      "year_of_production": 2016,
+      "release_date": "2016-07-20",
+      "release_date_stringify": "Sorti le 20 juillet 2016",
+      "production_status": null,
+      "type_id": 1,
+      "creators": "Roland Emmerich",
+      "workers": "Avec Liam Hemsworth, Jeff Goldblum, Jessie Usher, Bill Pullman",
+      "genres": "Action, Aventure, Science fiction",
+      "subtype_id": 1,
+      "rating": 4.4,
+      "rating_count": null,
+      "wish_list_count": null,
+      "posters": {
+        "220": "http://media.senscritique.com/media/000015698907/220/Independence_Day_Resurgence.jpg",
+        "250": "http://media.senscritique.com/media/000015698907/250/Independence_Day_Resurgence.jpg"
+      },
+      "trailers": null,
+      "backdrops": {
+        "725": "http://media.senscritique.com/media/000016174545/725/Independence_Day_Resurgence.jpg"
+      },
+      "description": "La Terre est menacée par une catastrophe d'une ampleur inimaginable. Pour la protéger, toutes les nations ont collaboré autour d'un programme de défense colossal exploitant la technologie extraterrestre récupérée. Mais rien ne peut nous préparer à la force de frappe sans précédent des aliens. Seule l'ingéniosité et le courage de quelques hommes et femmes peuvent sauver l'humanité de...",
+      "list_position": null,
+      "list_description": null,
+      "length": 7200,
+      "list_item": null,
+      "current_user_data": {
+        "rating_scout_count": null,
+        "rating_scout_average": null,
+        "wish_scout_count": null,
+        "btsc": {
+          "action_count": 1,
+          "wish": "1",
+          "image": "http://sv.sens.sc/img/mobile/btsc/wish.png",
+          "collection": {
+            "id": 102089131,
+            "user_id": 659698,
+            "product_id": 8123887,
+            "rating": null,
+            "is_recommend": null,
+            "is_current": null,
+            "is_done": null,
+            "date_done": null,
+            "is_wish_list": 1,
+            "is_shopping_list": null,
+            "is_review": null,
+            "format_id": null,
+            "review_content": null,
+            "review_title": null,
+            "review_date_last_update": null,
+            "is_list": null,
+            "total_list": null
+          }
+        }
+      }
+    }
+  ],
+  "paging": {
+    "before": null,
+    "after": null
+  },
+  "code": 200
+}

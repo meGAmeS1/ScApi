@@ -1,0 +1,117 @@
+{
+    "code": 200, 
+    "items": [
+        {
+            "display": "gallery", 
+            "label": "Tout", 
+            "type_id": 0, 
+            "url": "/products/popular"
+        }, 
+        {
+            "items": [
+                {
+                    "display": "gallery", 
+                    "label": "Populaires", 
+                    "url": "/products/popular?type_id=1"
+                }, 
+                {
+                    "display": "list", 
+                    "label": "Sortie de la semaine", 
+                    "url": "/movies/out_week"
+                }, 
+                {
+                    "display": "list", 
+                    "label": "A l'affiche", 
+                    "url": "/movies/in_theaters"
+                }
+            ], 
+            "label": "Films", 
+            "type_id": 1
+        }, 
+        {
+            "items": [
+                {
+                    "display": "gallery", 
+                    "label": "Populaires", 
+                    "url": "/products/popular?type_id=4"
+                }, 
+                {
+                    "display": "list", 
+                    "label": "En ce moment", 
+                    "url": "/tvshows/on_tv"
+                }
+            ], 
+            "label": "S\u00e9ries", 
+            "type_id": 4
+        }, 
+        {
+            "items": [
+                {
+                    "display": "gallery", 
+                    "label": "Actualit\u00e9", 
+                    "url": "/products/popular?type_id=3"
+                }, 
+                {
+                    "display": "list", 
+                    "label": "Prochainement", 
+                    "url": "/videogames/soon"
+                }
+            ], 
+            "label": "Jeux", 
+            "type_id": 3
+        }, 
+        {
+            "items": [
+                {
+                    "display": "gallery", 
+                    "label": "Actualit\u00e9", 
+                    "url": "/products/popular?type_id=2"
+                }, 
+                {
+                    "display": "list", 
+                    "label": "Meilleures ventes", 
+                    "url": "/books/best_sales"
+                }
+            ], 
+            "label": "Livres", 
+            "type_id": 2
+        }, 
+        {
+            "items": [
+                {
+                    "display": "gallery", 
+                    "label": "Franco-belge", 
+                    "url": "/comics/popular/franco_belge"
+                }, 
+                {
+                    "display": "gallery", 
+                    "label": "Comics", 
+                    "url": "/comics/popular/comics"
+                }, 
+                {
+                    "display": "gallery", 
+                    "label": "Mangas", 
+                    "url": "/comics/popular/mangas"
+                }
+            ], 
+            "label": "BD", 
+            "type_id": 5
+        }, 
+        {
+            "items": [
+                {
+                    "display": "gallery", 
+                    "label": "Populaires", 
+                    "url": "/products/popular?type_id=6"
+                }, 
+                {
+                    "display": "list", 
+                    "label": "Prochainement", 
+                    "url": "/music/soon"
+                }
+            ], 
+            "label": "Musique", 
+            "type_id": 6
+        }
+    ]
+}

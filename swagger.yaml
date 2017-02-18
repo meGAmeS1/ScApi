@@ -1,0 +1,647 @@
+#
+#
+#  SENS CRITIQUE MOBILE API
+#
+#
+swagger: '2.0'
+info:
+  title: SensCritique Mobile API
+  description: "Unofficial SensCritique API"
+  version: "1.0.0"
+
+# the domain of the service
+host: mobile-api.senscritique.com
+
+# array of all schemes that your API supports
+schemes:
+  - https
+
+# will be prefixed to all paths
+basePath: /
+
+produces:
+  - application/json
+
+consumes:
+  - application/json
+
+paths:
+  /auth/request_token:
+    get:
+      summary: Request API token
+      description: Get an API token, which needs to be authenticated in a further step
+      parameters:
+        - name: app_id
+          in: query
+          required: true
+          type: integer
+          description: "Should be set to 11"
+
+      tags:
+        - Authentication
+      responses:
+        200:
+          description: Request token
+          schema:
+            $ref: "#/definitions/RequestToken"
+
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+  /auth/login:
+    post:
+      summary: Perform user authentication
+      description: Authenticate a request_token with a username/password couple
+      tags:
+        - Authentication
+
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: Authentication request parameters
+          schema:
+            $ref: "#/definitions/AuthenticationRequest"
+
+      responses:
+        200:
+          description: Authentication API token, should be used into all the further requests
+          schema:
+            $ref: "#/definitions/AccessToken"
+
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+
+#
+#
+#    PRODUCT EVALUTION
+#
+#
+
+  /users/{user_id}/products/wish:
+    get:
+      summary: User wishes
+      description: Returns the list of the wishes for a given user
+      parameters:
+        - name: user_id
+          type: string
+          in: path
+          required: true
+          description: "User id (use 'me' for logged in user)"
+
+        - $ref: "#/parameters/access_token"
+      tags:
+        - Product
+      responses:
+        200:
+          description: Paginated list of the product wished by the user
+          schema:
+            $ref: '#/definitions/PaginatedProductListResponse'
+
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+  /products/{product_id}/rate:
+    post:
+      summary: Rate a product
+      description: Send a rating for a product
+      parameters:
+        - $ref: "#/parameters/access_token"
+        - $ref: '#/parameters/product_id'
+        - name: body
+          in: body
+          required: true
+          description: Rating request body
+          schema:
+            $ref: "#/definitions/RatingRequest"
+      tags:
+        - Product
+      responses:
+        200:
+          description: Response which contains a boolean to give the operation result status
+          schema:
+            $ref: '#/definitions/SuccessStatusResponse'
+
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+
+#
+#
+#   SEARCH
+#
+#
+
+
+  /search:
+    get:
+      summary: Search products
+      description: Search products, depending on text (title and description) and universe + sub_universe
+      parameters:
+        - name: query
+          type: string
+          in: query
+          required: true
+          description: "The text to search"
+        - $ref: "#/parameters/access_token"
+        - $ref: '#/parameters/search_filter'
+
+      tags:
+        - Search
+      responses:
+        200:
+          description: Paginated list of the product wished by the user
+          schema:
+            $ref: '#/definitions/PaginatedProductListResponse'
+
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+
+#
+#
+#   LISTS - LISTS MANAGEMENT
+#
+#
+
+
+  /users/me/lists:
+    post:
+      summary: Create a list for the given user
+      description: Create a list for a specific user, with a Sub-Universe type (album, ...)
+      parameters:
+        - name: label
+          type: string
+          in: query
+          required: true
+          description: The name of the list
+        - name: sub_universe
+          type: integer
+          in: query
+          required: true
+          description: The id of the sub universe attached to the list
+        - $ref: "#/parameters/access_token"
+      tags:
+        - Lists
+      responses:
+        200:
+          description: Description of the new list
+          schema:
+            $ref: '#/definitions/ListCreationResponse'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+  /lists/{list_id}:
+    get:
+      summary: Describe a list information (name, ...)
+      description: Describe a list information (name, ...)
+      parameters:
+        - $ref: "#/parameters/access_token"
+        - $ref: '#/parameters/list_id'
+      tags:
+        - Lists
+      responses:
+        200:
+          description: Description of a list
+          schema:
+            $ref: '#/definitions/ListDescriptionResponse'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+  /lists/{list_id}/products/{product_id}:
+    post:
+      summary: Add product to list
+      description: Add a product (specified by productId) to the specified list (listId)
+      parameters:
+        - $ref: "#/parameters/access_token"
+        - $ref: '#/parameters/list_id'
+        - $ref: '#/parameters/product_id'
+      tags:
+        - Lists
+      responses:
+        200:
+          description: Paginated list of the product from the list after the update
+          schema:
+            $ref: '#/definitions/PaginatedProductListResponse'
+
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+#
+#
+#   LISTS - PRODUCTS MANAGEMENT
+#
+#
+
+  /lists/{list_id}/products:
+    get:
+      summary: Get the products of a list
+      description: Get all th product in a list. This method uses a limit/offset system to limit the results returned by the request.
+      parameters:
+        - $ref: "#/parameters/access_token"
+        - $ref: '#/parameters/list_id'
+        - name: limit
+          type: integer
+          in: query
+          required: false
+          description: The maximum number of product to return. Default to 20.
+        - name: offset
+          type: integer
+          in: query
+          required: false
+          description: The offset of the beginning of the list. Default to 0.
+      tags:
+        - Lists
+      responses:
+        200:
+          description: Paginated list of the product from the list
+          schema:
+            $ref: '#/definitions/PaginatedProductListResponse'
+
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+  /lists/{list_id}/products/{product_id}/:
+    post:
+      summary: Add a product in a list
+      description: Add the designated product in the list. If the list already contains the item it will not be re-add. Because the universe filtering is done client side, this method also allows to add items in a list even if their universe is different.
+      parameters:
+        - $ref: "#/parameters/access_token"
+        - $ref: '#/parameters/list_id'
+        - $ref: '#/parameters/product_id'
+      tags:
+        - Lists
+      responses:
+        200:
+          description: "Operation status"
+          schema:
+            $ref: '#/definitions/SuccessStatusResponse'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    delete:
+      summary: Remove a product from a list
+      description: Remove the designated product in the list.
+      parameters:
+        - $ref: '#/parameters/list_id'
+        - $ref: '#/parameters/product_id'
+      tags:
+        - Lists
+      responses:
+        200:
+          description: "Operation status"
+          schema:
+            $ref: '#/definitions/SuccessStatusResponse'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+  /lists/{list_id}/:
+    get:
+      summary: Get all the products of a list
+      description: Get all the products of a list
+      parameters:
+        - $ref: "#/parameters/access_token"
+        - $ref: '#/parameters/list_id'
+      tags:
+        - Lists
+      responses:
+        200:
+          description: Product List
+          schema:
+            $ref: '#/definitions/PaginatedProductListResponse'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+
+#
+#
+#    GENERIC PARAMETERS
+#
+#
+
+parameters:
+  access_token:
+    name: access_token
+    type: string
+    in: query
+    required: true
+    description: Authenticated token
+
+  search_filter:
+    name: filter
+    type: string
+    in: query
+    required: false
+    description: Limit the results to a specific universe
+    enum: [ "0", "movies", "tvshows", "books", "comics", "videogames", "albums", "tracks", "lists", "polls", "franchises", "contacts", "users", "venues" ]
+
+  list_id:
+    name: list_id
+    type: integer
+    in: path
+    required: true
+    description: The id of a list
+
+  product_id:
+    name: product_id
+    type: integer
+    in: path
+    required: true
+    description: The id of a product
+
+
+
+#
+#
+#   DEFINITIONS
+#
+#
+
+definitions:
+
+#
+#     MODELS
+#
+
+  RequestToken:
+    type: object
+    properties:
+      request_token:
+        type: object
+        description: Token used to authenticate
+        properties:
+          id:
+            type: integer
+          application_id:
+            type: integer
+          token:
+            type: string
+
+  AccessToken:
+    type: object
+    properties:
+      access_token:
+        type: string
+        description: Authenticated token which should be added in all the requests
+
+  Product:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: Id of product (movie, music, ...)
+      title:
+        type: string
+        description: Description of product.
+      year_of_production:
+        type: integer
+        description: Year of production
+      release_date:
+        type: string
+        description: Realease date of the product
+      release_date_stringify:
+        type: string
+        description: Realease date of the product (technical)
+      production_status:
+        type: string
+        description: Production status of the product
+      creators:
+        type: string
+        description: Comma separated list of the creators of the product
+      workers:
+        type: string
+        description: Comma separated list of the people which works on the product
+      genres:
+        type: string
+        description: Comma separated list of the "genders" of the product (Thriller, ...)
+      trailers:
+        type: object
+        description: Urls of the trailer (key = ???, value = url)
+      type_id:
+        type: integer
+        format: int32
+        description: Id of the product universe
+      subtype_id:
+        type: integer
+        format: int32
+        description: Id of the product sub-universe
+
+      rating:
+        type: integer
+        description: NOT WORKING
+      rating_count:
+        type: integer
+        description: NOT WORKING
+      wish_list_count:
+        type: integer
+        description: NOT WORKING
+
+      list_position:
+        type: integer
+        description: ???
+      list_description:
+        type: string
+        description: ???
+      length:
+        type: integer
+        description: ???
+      list_item:
+        type: integer
+        description: ???
+
+      current_user_data:
+        type: object
+        properties:
+          rating_scout_count:
+            type: integer
+            description: NOT WORKING
+          rating_scout_average:
+            type: integer
+            description: NOT WORKING
+          wish_scout_count:
+            type: integer
+            description: NOT WORKING
+
+  User:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: ""
+      username:
+        type: string
+        description: ""
+      displayed_name:
+        type: string
+        description: ""
+      first_name:
+        type: string
+        description: ""
+      last_name:
+        type: string
+        description: ""
+      gender_label:
+        type: string
+        description: ""
+
+  List:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: ""
+      title:
+        type: string
+        description: ""
+      description:
+        type: string
+        description: ""
+      date_creation:
+        type: string
+        description: ""
+      user:
+        $ref: '#/definitions/User'
+
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
+
+
+#
+#
+#    REQUESTS
+#
+#
+
+  AuthenticationRequest:
+    type: object
+    properties:
+      nonce:
+        type: string
+        description: |
+          # How to generate nonce:
+          password_md5 = md5(user_password)
+          # Use token as hashing key
+          nonce = md5(user_email + password_md5, token)
+
+      email:
+        type: string
+        description: The user email used to login
+
+      password:
+        type: string
+        description: The user passord used to login
+
+      token_id:
+        type: string
+        description: "The id of the request_token to authenticate"
+
+  RatingRequest:
+    type: object
+    properties:
+      rating:
+        type: number
+
+
+#
+#
+#   RESPONSES
+#
+#
+
+  PaginatedProductListResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          description: ""
+        paging:
+          type: object
+          properties:
+            after:
+              type: string
+              description: Url to the next page
+            before:
+              type: string
+              description: Url to the previous page
+        products:
+          type: array
+          items:
+              $ref: "#/definitions/Product"
+
+  ListCreationResponse:
+    type: object
+    properties:
+      code:
+        type: integer
+        description: ""
+      success:
+        type: boolean
+        description: ""
+      list:
+        $ref: '#/definitions/List'
+
+  ListDescriptionResponse:
+    type: object
+    properties:
+      code:
+        type: integer
+        description: ""
+      success:
+        type: boolean
+        description: ""
+      id:
+        type: integer
+        description: ""
+      title:
+        type: string
+        description: ""
+      description:
+        type: string
+        description: ""
+      date_creation:
+        type: string
+        description: ""
+      user:
+        $ref: '#/definitions/User'
+
+  SuccessStatusResponse:
+    type: object
+    properties:
+      success:
+        type: boolean
+      code:
+        type: integer
+        format: int32

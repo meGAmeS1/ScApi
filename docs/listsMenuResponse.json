@@ -1,0 +1,222 @@
+{
+    "code": 200, 
+    "items": [
+        {
+            "items": [
+                {
+                    "display": "listing_list", 
+                    "label": "Tout", 
+                    "url": "/users/me/lists"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Listes", 
+                    "url": "/users/me/lists/lists"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Sondages", 
+                    "url": "/users/me/lists/polls"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Tops 10", 
+                    "url": "/users/me/lists/tops"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Listes priv\u00e9es", 
+                    "url": "/users/me/lists/privates"
+                }
+            ], 
+            "label": "Tout", 
+            "type_id": 0
+        }, 
+        {
+            "items": [
+                {
+                    "display": "listing_list", 
+                    "label": "Tout", 
+                    "url": "/users/me/lists/movie"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Listes", 
+                    "url": "/users/me/lists/movie/lists"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Sondages", 
+                    "url": "/users/me/lists/movie/polls"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Tops 10", 
+                    "url": "/users/me/lists/movie/tops"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Listes priv\u00e9es", 
+                    "url": "/users/me/lists/movie/privates"
+                }
+            ], 
+            "label": "Films", 
+            "type_id": 1
+        }, 
+        {
+            "items": [
+                {
+                    "display": "listing_list", 
+                    "label": "Tout", 
+                    "url": "/users/me/lists/tvshow"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Listes", 
+                    "url": "/users/me/lists/tvshow/lists"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Sondages", 
+                    "url": "/users/me/lists/tvshow/polls"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Tops 10", 
+                    "url": "/users/me/lists/tvshow/tops"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Listes priv\u00e9es", 
+                    "url": "/users/me/lists/tvshow/privates"
+                }
+            ], 
+            "label": "S\u00e9ries", 
+            "type_id": 4
+        }, 
+        {
+            "items": [
+                {
+                    "display": "listing_list", 
+                    "label": "Tout", 
+                    "url": "/users/me/lists/videogame"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Listes", 
+                    "url": "/users/me/lists/videogame/lists"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Sondages", 
+                    "url": "/users/me/lists/videogame/polls"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Tops 10", 
+                    "url": "/users/me/lists/videogame/tops"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Listes priv\u00e9es", 
+                    "url": "/users/me/lists/videogame/privates"
+                }
+            ], 
+            "label": "Jeux", 
+            "type_id": 3
+        }, 
+        {
+            "items": [
+                {
+                    "display": "listing_list", 
+                    "label": "Tout", 
+                    "url": "/users/me/lists/book"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Listes", 
+                    "url": "/users/me/lists/book/lists"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Sondages", 
+                    "url": "/users/me/lists/book/polls"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Tops 10", 
+                    "url": "/users/me/lists/book/tops"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Listes priv\u00e9es", 
+                    "url": "/users/me/lists/book/privates"
+                }
+            ], 
+            "label": "Livres", 
+            "type_id": 2
+        }, 
+        {
+            "items": [
+                {
+                    "display": "listing_list", 
+                    "label": "Tout", 
+                    "url": "/users/me/lists/comic"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Listes", 
+                    "url": "/users/me/lists/comic/lists"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Sondages", 
+                    "url": "/users/me/lists/comic/polls"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Tops 10", 
+                    "url": "/users/me/lists/comic/tops"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Listes priv\u00e9es", 
+                    "url": "/users/me/lists/comic/privates"
+                }
+            ], 
+            "label": "BD", 
+            "type_id": 5
+        }, 
+        {
+            "items": [
+                {
+                    "display": "listing_list", 
+                    "label": "Tout", 
+                    "url": "/users/me/lists/music"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Listes", 
+                    "url": "/users/me/lists/music/lists"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Sondages", 
+                    "url": "/users/me/lists/music/polls"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Tops 10", 
+                    "url": "/users/me/lists/music/tops"
+                }, 
+                {
+                    "display": "listing_list", 
+                    "label": "Listes priv\u00e9es", 
+                    "url": "/users/me/lists/music/privates"
+                }
+            ], 
+            "label": "Musique", 
+            "type_id": 6
+        }
+    ]
+}
