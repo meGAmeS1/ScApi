@@ -79,6 +79,7 @@ class Product(object):
     length = 0
     list_item = None
     current_user_data = CurrentUserData()
+    posters  = ""
 
 
 class List(object):
