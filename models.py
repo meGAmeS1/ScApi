@@ -18,6 +18,17 @@ class Universe(Enum):
     Music = (6, "music")
 
 
+class Collection(Enum):
+    # (id, key)
+    # Default = (0, "")  # = Wishes
+    Wishes = (1, "wish")
+    Ratings = (2, "rating")
+    Recommend = (3, "recommend")
+    Currents = (4, "current")
+    Comics = (5, "comic")
+    Shopping = (6, "")
+
+
 class SubUniverse(Enum):
     Movies = 1
     Books = 2

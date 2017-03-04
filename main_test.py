@@ -15,7 +15,7 @@ def pp_json(data):
 client = SensCritiqueClient()
 client.login(settings.LOGIN, settings.PASSWORD)
 
-# wishes = client.l_get_wishes_all(Universe.Music)
+# wishes = client.l_get_collection(Collection.Wishes, Universe.Music)
 # logger.info("Id = {id}".format(id=wishes[0].id))
 # logger.info("Title = {title}".format(title=wishes[0].title))
 # logger.info("Trailer = {title}".format(title=wishes[0].trailers))

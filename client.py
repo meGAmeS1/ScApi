@@ -47,14 +47,22 @@ class SensCritiqueClient(object):
     #
     #
 
-    """
-     WARNING: This method will returns the "Movie" wishes if the user does not have
-     any wish for the given universe
-    """
+    def get_collection(self, userId, collection, universe):
+        collection_universe_uri = '/users/' + userId + '/products/' + universe.value[1] + '/' + collection.value[1] + '/'
+        final_list = []
 
-    def get_wishes_all(self, userId, universe):
-        response_object = self.send_request(Method.GET, '/users/' + userId + '/products/wish', {'type_id': universe.value[0]}, None, ProductListResponse)
-        return response_object.products
+        page = 1
+
+        while True:
+            response_object = self.send_request(Method.GET, collection_universe_uri, {"page": page}, None, ProductListResponse)
+            final_list.extend(response_object.products)
+
+            if response_object.paging.after is None:
+                break
+            
+            page += 1
+
+        return final_list
 
     def get_userinfo(self, userId):
         return self.send_request(Method.GET, '/users/' + userId, {}, None, UserInfoResponse)
@@ -65,8 +73,8 @@ class SensCritiqueClient(object):
     #
     #
 
-    def l_get_wishes_all(self, universe):
-        return self.get_wishes_all('me', universe)
+    def l_get_collection(self, collection, universe):
+        return self.get_collection('me', collection, universe)
 
     def l_get_userinfo(self):
         return self.get_userinfo('me')
