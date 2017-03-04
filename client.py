@@ -19,7 +19,7 @@ class SensCritiqueClient(object):
 
         if token_response.status_code != 200:
             logger.error("ERROR on login. Status code is different than 200")
-            return None
+            return False
 
         token = token_response.json().get('request_token')
 
@@ -32,13 +32,14 @@ class SensCritiqueClient(object):
                                                                             'token_id': str(token.get('id'))})
         if login_response.status_code != 200:
             logger.error("ERROR on login. Status code is different than 200")
-            return None
+            return False
 
         login_data = login_response.json()
 
         access_token = str(login_data.get('access_token'))
 
         self.auth_info = AuthInfo(username, access_token)
+        return True
 
     #
     #
@@ -117,7 +118,7 @@ class SensCritiqueClient(object):
         else:
             request_params['offset'] = "0"
 
-        product_list = self.send_request(Method.GET, "/lists/{list_id}/products".format(list_id=list_id), {}, None, ProductListResponse)
+        product_list = self.send_request(Method.GET, "/lists/{list_id}/products".format(list_id=list_id), request_params, None, ProductListResponse)
         return product_list.products
 
     def save_product_in_list(self, product_id, list_id, **params):
